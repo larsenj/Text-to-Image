@@ -65,7 +65,8 @@ public class TextReader
     {
         int numerator = (MAX_COLOR - MIN_COLOR) * (num - MIN_BYTE);
         int denominator = MAX_BYTE - MIN_BYTE;
-        return numerator / denominator + MIN_COLOR;
+        //some text samples were still giving numbers above 255, so added modulo
+        return (numerator / denominator + MIN_COLOR) % 256;
     } 
 
 }//end class
